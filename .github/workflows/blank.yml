@@ -24,14 +24,9 @@ jobs:
         ./configure
         make
 
-    - name: Create Installation Directory
-      run: |        
-        mkdir -p build-root
-        cp -r src/emacs build-root
-
     - name: Create Binary Archive
       run: |
-        tar -czvf emacs-binary.tar.gz -C build-root .
+        tar -czvf emacs-binary.tar.gz -C build .
       
     - name: Upload Binary Artifact
       uses: actions/upload-artifact@v2
