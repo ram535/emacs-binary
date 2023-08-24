@@ -21,13 +21,13 @@ jobs:
         git clone https://git.savannah.gnu.org/git/emacs.git
         cd emacs
         ./autogen.sh
-        ./configure
+        ./configure prefix=build-root
         make
 
     - name: Create Installation Directory
       run: |
         mkdir -p build-root
-        make install prefix=build-root
+        make install
 
     - name: Create Binary Archive
       run: |
