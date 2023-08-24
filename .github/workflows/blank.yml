@@ -26,7 +26,7 @@ jobs:
 
     - name: Create Binary Archive
       run: |
-        tar -czvf emacs-binary.tar.gz -C build .
+        tar -czvf emacs-binary.tar.gz -C src .
       
     - name: Upload Binary Artifact
       uses: actions/upload-artifact@v2
