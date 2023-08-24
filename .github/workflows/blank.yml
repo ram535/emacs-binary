@@ -19,15 +19,15 @@ jobs:
     - name: Build Emacs
       run: |
         git clone https://git.savannah.gnu.org/git/emacs.git
-        cd emacs
-        mkdir -p build-root
+        cd emacs        
         ./autogen.sh
-        ./configure prefix=$(pwd)/build-root
+        ./configure
         make
 
     - name: Create Installation Directory
       run: |        
-        make install
+        mkdir -p build-root
+        cp -r src/emacs build-root
 
     - name: Create Binary Archive
       run: |
