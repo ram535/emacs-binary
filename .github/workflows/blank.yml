@@ -19,14 +19,16 @@ jobs:
     - name: Build Emacs
       run: |
         git clone https://git.savannah.gnu.org/git/emacs.git
-        cd emacs        
+        cd emacs
+        mkdir build
         ./autogen.sh
-        ./configure
+        ./configure prefix=$(pwd)/build
         make
+        make install
 
     - name: Create Binary Archive
       run: |
-        tar -czvf emacs-binary.tar.gz -C src .
+        tar -czvf emacs-binary.tar.gz -C build .
       
     - name: Upload Binary Artifact
       uses: actions/upload-artifact@v2
