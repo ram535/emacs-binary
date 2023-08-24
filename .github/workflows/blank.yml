@@ -22,7 +22,7 @@ jobs:
         cd emacs
         mkdir -p build-root
         ./autogen.sh
-        ./configure prefix=build-root
+        ./configure prefix=$(pwd)/build-root
         make
 
     - name: Create Installation Directory
