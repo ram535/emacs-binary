@@ -28,7 +28,7 @@ jobs:
 
     - name: Create Binary Archive
       run: |
-        tar -czvf emacs-binary.tar.gz -C build .
+        tar -czvf emacs-binary.tar.gz -C $GITHUB_WORKSPACE/build .
       
     - name: Upload Binary Artifact
       uses: actions/upload-artifact@v2
